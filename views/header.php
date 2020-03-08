@@ -39,7 +39,8 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition sidebar-mini sidebar-collapse">
+<body class="hold-transition sidebar-mini sidebar-collapse" style="height: auto; min-height: 100%;  background: url(images/background.jpg) no-repeat center center fixed width: 100%;
+  height: auto;">
 <div class="wrapper">
 
   <!-- Navbar -->
