@@ -10,9 +10,23 @@ $(document).ready(function(){
         $.getJSON("apis/tabela_jogos.php?action=getRodada", function (data){
         	console.log(data);
             if (data.length > 0){
-                $.each(data, function(i, obj){
+                var dataTable = $("#tbJogos");
+                var rowNumber = 1; 
 
-                	alert (obj.id_jogo);
+                $.each(data, function(i, obj){
+  
+                    dataTable[0].rows[rowNumber].cells[0].innerHTML = obj.nome_time_casa;
+                    dataTable[0].rows[rowNumber].cells[1].innerHTML = obj.gols_time_casa;
+                    dataTable[0].rows[rowNumber].cells[3].innerHTML = obj.gols_time_visitante;
+                    dataTable[0].rows[rowNumber].cells[4].innerHTML = obj.nome_time_visitante;
+
+
+                    rowNumber ++;
+                    
+                    //$('#tbJogos').append('<tr><td>COL1</td><td>COL2</td></tr>');
+                    
+
+                	//alert (obj.id_jogo);
                     //$("#fotomembro").val(obj.foto);
                     //$("#txtCpf").val(obj.cpf);
                     //$("#dtNascimento").val(obj.data_nascimento);
@@ -32,6 +46,42 @@ $(document).ready(function(){
 </script>
 <body>
 
-	<button>Send an HTTP GET request to a page and get the result back</button>
+	<button>Atualizar</button>
+    <table id="tbJogos" border="1">
+        <thead>
+            <th>Time da Casa</th>
+            <th></th>
+            <th>X</th>
+            <th></th>
+            <th>Time Visitante</th>
+            <th>Eventos</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="cTime1"></td>
+                <td id="cPlacar1"></td>
+                <td id="cx"></td>
+                <td id="cTime2"></td>
+                <td id="cPlacar2"></td>
+                <td id="cEvento"></td>
+            </tr>
+            <tr>
+                <td id="cTime1"></td>
+                <td id="cPlacar1"></td>
+                <td id="cx"></td>
+                <td id="cTime2"></td>
+                <td id="cPlacar2"></td>
+                <td id="cEvento"></td>
+            </tr>            
+            <tr>
+                <td id="cTime1"></td>
+                <td id="cPlacar1"></td>
+                <td id="cx"></td>
+                <td id="cTime2"></td>
+                <td id="cPlacar2"></td>
+                <td id="cEvento"></td>
+            </tr>        
+        </tbody>
+    </table>
 </body>
 </html>

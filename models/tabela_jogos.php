@@ -36,20 +36,26 @@ class TabelaJogos{
     private function get($criteria = null){
 		$sql = new Sql;
 
-		$query = "SELECT id_jogo,
-					id_servidor, 
-					id_liga,
-                    temporada,
-					rodada,
-					id_time_casa,
-					id_time_visitante,
-					gols_time_casa,
-					gols_time_visitante,
-					status
-        		FROM tabela_jogos";
+		$query = "SELECT tj.id_jogo,
+					tj.id_servidor, 
+					tj.id_liga,
+                    tj.temporada,
+					tj.rodada,
+					tj.id_time_casa,
+					t1.nome as nome_time_casa,
+					tj.id_time_visitante,
+					t2.nome as nome_time_visitante,
+					tj.gols_time_casa,
+					tj.gols_time_visitante,
+					tj.status
+        		FROM tabela_jogos tj 
+        			INNER JOIN time t1
+        			ON tj.id_time_casa = t1.id_time
+        			INNER JOIN time t2
+        			ON tj.id_time_visitante = t2.id_time";
 
 		if (!is_null($criteria)){
-			$query .= " AND " . $criteria;
+			$query .= " WHERE " . $criteria;
 		}
 
 		$query .= " ORDER BY id_jogo";
