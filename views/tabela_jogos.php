@@ -7,8 +7,10 @@
 <script>
 $(document).ready(function(){
   $("button").click(function(){
-        $.getJSON("apis/tabela_jogos.php?action=getRodada", function (data){
-        	console.log(data);
+        console.log('passou');
+        //$.getJSON("apis/tabela_jogos.php?action=getRodada", function (data){
+        $.getJSON("apis/tabela_jogos.php", function (data){
+        	//console.log('Entrou');
             if (data.length > 0){
                 var dataTable = $("#tbJogos");
                 var rowNumber = 1; 

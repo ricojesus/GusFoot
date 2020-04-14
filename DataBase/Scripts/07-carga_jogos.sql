@@ -1,0 +1,10 @@
+insert into tabela_jogos (id_servidor, id_liga, temporada, rodada, id_time_casa, id_time_visitante, gols_time_casa, gols_time_visitante) values (1, 1, 2020, 1, 1, 2, 0, 0);
+insert into tabela_jogos (id_servidor, id_liga, temporada, rodada, id_time_casa, id_time_visitante, gols_time_casa, gols_time_visitante) values (1, 1, 2020, 1, 3, 4, 0, 0);
+insert into tabela_jogos (id_servidor, id_liga, temporada, rodada, id_time_casa, id_time_visitante, gols_time_casa, gols_time_visitante) values (1, 1, 2020, 1, 5, 6, 0, 0);
+insert into tabela_jogos (id_servidor, id_liga, temporada, rodada, id_time_casa, id_time_visitante, gols_time_casa, gols_time_visitante) values (1, 1, 2020, 1, 7, 8, 0, 0);
+insert into tabela_jogos (id_servidor, id_liga, temporada, rodada, id_time_casa, id_time_visitante, gols_time_casa, gols_time_visitante) values (1, 1, 2020, 1, 9, 10, 0, 0);
+insert into tabela_jogos (id_servidor, id_liga, temporada, rodada, id_time_casa, id_time_visitante, gols_time_casa, gols_time_visitante) values (1, 1, 2020, 1, 11, 12, 0, 0);
+insert into tabela_jogos (id_servidor, id_liga, temporada, rodada, id_time_casa, id_time_visitante, gols_time_casa, gols_time_visitante) values (1, 1, 2020, 1, 13, 14, 0, 0);
+insert into tabela_jogos (id_servidor, id_liga, temporada, rodada, id_time_casa, id_time_visitante, gols_time_casa, gols_time_visitante) values (1, 1, 2020, 1, 15, 16, 0, 0);
+insert into tabela_jogos (id_servidor, id_liga, temporada, rodada, id_time_casa, id_time_visitante, gols_time_casa, gols_time_visitante) values (1, 1, 2020, 1, 17, 18, 0, 0);
+insert into tabela_jogos (id_servidor, id_liga, temporada, rodada, id_time_casa, id_time_visitante, gols_time_casa, gols_time_visitante) values (1, 1, 2020, 1, 19, 20, 0, 0);

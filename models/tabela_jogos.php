@@ -1,5 +1,5 @@
 <?php
-include_once("../dal/Sql.php");
+include_once("dal/Sql.php");
 
 class TabelaJogos{
     public $id;

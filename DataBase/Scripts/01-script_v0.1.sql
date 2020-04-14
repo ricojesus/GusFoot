@@ -198,7 +198,7 @@ CREATE INDEX `fk_servidor_usuario_usuario1_idx` ON `GusFoot`.`servidor_usuario` 
 -- Table `GusFoot`.`tabela_jogos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `GusFoot`.`tabela_jogos` (
-  `id_jogo` INT NOT NULL,
+  `id_jogo` INT NOT NULL AUTO_INCREMENT,
   `id_servidor` INT NOT NULL,
   `id_liga` INT NOT NULL,
   `temporada` INT NOT NULL,
@@ -207,6 +207,7 @@ CREATE TABLE IF NOT EXISTS `GusFoot`.`tabela_jogos` (
   `id_time_visitante` INT NOT NULL,
   `gols_time_casa` INT NOT NULL DEFAULT 0,
   `gols_time_visitante` INT NOT NULL DEFAULT 0,
+  `status` SMALLINT(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_jogo`),
   CONSTRAINT `fk_tabela_jogos_liga1`
     FOREIGN KEY (`id_liga`)
