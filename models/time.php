@@ -1,26 +1,30 @@
 <?php
-include_once("../dal/Sql.php");
-include_once("usuario.php");
+//include_once("/dal/Sql.php");
+include_once("jogador.php");
 
 class Time{
     public $nome;
 	public $sigla;
-	public $usuario
+	public $usuario;
 	public $escudo;
+	public $jogadores;
 
 	public function __construct($id = 0){
-		parent::__construct($id);
 		if ($id != 0) {
-			$result = $this->get("u.id_usuario = $id");
+			$result = $this->get("id_time = $id");
 			if (count($result) > 0){
                 $this->nome = $result[0]["nome"];
-				$this->senha = $result[0]["sigla"];
+				$this->sigla = $result[0]["sigla"];
 				$this->escudo = $result[0]["escudo"];
 				$this->usuario = new Usuario($result[0]["tipo"]);
+				$this->jogadores = Jogador::ListbyTime($id);
 			}
         }
     }
 
+	public static function getbyId($id_time){        
+		return (new self)->get("id_time = $id_time");
+    }
 
     private function get($criteria = null){
 		$sql = new Sql;
@@ -32,7 +36,7 @@ class Time{
 					sigla,
 					escudo
         		FROM time
-				WHERE status != 1";
+				WHERE 1 = 1";
 
 		if (!is_null($criteria)){
 			$query .= " AND " . $criteria;

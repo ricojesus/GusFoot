@@ -29,25 +29,42 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `GusFoot`.`posicao`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `GusFoot`.`posicao` (
+  `id_posicao` VARCHAR(2) NOT NULL,
+  `posicao` VARCHAR(50) NOT NULL,
+  `tipo` VARCHAR(1) NOT NULL,
+  PRIMARY KEY (`id_posicao`))
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
 -- Table `GusFoot`.`jogador_base`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `GusFoot`.`jogador_base` (
   `id_jogador` INT NOT NULL AUTO_INCREMENT,
   `id_pais` INT NOT NULL,
+  `id_posicao` DECIMAL(2) NOT NULL,
   `nome` VARCHAR(50) NOT NULL,
-  `posicao` VARCHAR(3) NOT NULL,
   `nascimento` INT NOT NULL,
   `forca` INT NOT NULL,
   `status` SMALLINT(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_jogador`),
-  CONSTRAINT `fk_jogador_base_pais_base`
+  CONSTRAINT `fk_jogador_base_pais1`
     FOREIGN KEY (`id_pais`)
-    REFERENCES `GusFoot`.`pais_base` (`id_pais`)
+    REFERENCES `GusFoot`.`pais` (`id_pais`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_jogador_base_posicao1`
+    FOREIGN KEY (`id_posicao`)
+    REFERENCES `GusFoot`.`posicao` (`id_posicao`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
+
 CREATE INDEX `fk_jogador_base_pais_base_idx` ON `GusFoot`.`jogador_base` (`id_pais` ASC) ;
+CREATE INDEX `fk_jogador_base_posicao1_idx` ON `GusFoot`.`jogador_base` (`id_posicao` ASC);
 
 
 -- -----------------------------------------------------
@@ -130,8 +147,8 @@ CREATE TABLE IF NOT EXISTS `GusFoot`.`jogador` (
   `id_jogador` INT NOT NULL AUTO_INCREMENT,
   `id_time` INT NOT NULL,
   `id_pais` INT NOT NULL,
+  `id_posicao` DECIMAL(2) NOT NULL,
   `nome` VARCHAR(50) NOT NULL,
-  `posicao` VARCHAR(3) NOT NULL,
   `nascimento` INT NOT NULL,
   `forca` INT NOT NULL,
   `status` SMALLINT(1) NOT NULL DEFAULT 1,
@@ -145,12 +162,20 @@ CREATE TABLE IF NOT EXISTS `GusFoot`.`jogador` (
     FOREIGN KEY (`id_time`)
     REFERENCES `GusFoot`.`time` (`id_time`)
     ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_jogador_posicao1`
+    FOREIGN KEY (`id_posicao`)
+    REFERENCES `GusFoot`.`posicao` (`id_posicao`)
+    ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_jogador_pais1_idx` ON `GusFoot`.`jogador` (`id_pais` ASC) ;
+CREATE INDEX `fk_jogador_pais1_idx` ON `GusFoot`.`jogador` (`id_pais` ASC);
 
-CREATE INDEX `fk_jogador_time1_idx` ON `GusFoot`.`jogador` (`id_time` ASC) ;
+CREATE INDEX `fk_jogador_time1_idx` ON `GusFoot`.`jogador` (`id_time` ASC);
+
+CREATE INDEX `fk_jogador_posicao1_idx` ON `GusFoot`.`jogador` (`id_posicao` ASC);
+
 
 
 -- -----------------------------------------------------
