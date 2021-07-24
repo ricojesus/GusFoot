@@ -5,25 +5,23 @@ include_once("jogador.php");
 class Time{
     public $nome;
 	public $sigla;
-	public $usuario;
 	public $escudo;
 	public $jogadores;
 
-	public function __construct($id = 0){
+	public function __construct($servidor = 0, $id = 0){
 		if ($id != 0) {
-			$result = $this->get("id_time = $id");
+			$result = $this->get("id_servidor = $servidor and id_time = $id");
 			if (count($result) > 0){
                 $this->nome = $result[0]["nome"];
 				$this->sigla = $result[0]["sigla"];
 				$this->escudo = $result[0]["escudo"];
-				$this->usuario = new Usuario($result[0]["tipo"]);
 				$this->jogadores = Jogador::ListbyTime($id);
 			}
         }
     }
 
-	public static function getbyId($id_time){        
-		return (new self)->get("id_time = $id_time");
+	public static function getbyId($id_servidor, $id_time){        
+		return new Time($id_servidor, $id_time);
     }
 
     private function get($criteria = null){

@@ -7,13 +7,13 @@ class Jogador{
 	public $nascimento;
 	public $forca;
 	public $posicao;
+	public $posicao_tipo;
 	public $pais;
     public $status;
 
 	public function __construct($id = 0){
-		parent::__construct($id);
 		if ($id != 0) {
-			$result = $this->get("u.id_usuario = $id");
+			$result = $this->get("id_jogador = $id");
 			if (count($result) > 0){
                 $this->nome = $result[0]["nome"];
 				$this->nascimento = $result[0]["nascimento"];
@@ -34,13 +34,16 @@ class Jogador{
 
 		$query = "SELECT id_jogador,
 					id_pais, 
-					id_posicao,
+					j.id_posicao,
                     id_time,
                     nome,
 					nascimento,
 					forca,
+					p.tipo,
                     status
-        		FROM Jogador
+        		FROM Jogador j
+				INNER JOIN posicao p
+				ON j.id_posicao = p.id_posicao
 
 				WHERE 1= 1";
 

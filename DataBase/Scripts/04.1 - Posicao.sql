@@ -1,5 +1,5 @@
 
-insert into posicao (id_posicao, posicao, tipo) values ('GL', 'Goleiro', 'D');
+insert into posicao (id_posicao, posicao, tipo) values ('GL', 'Goleiro', 'G');
 insert into posicao (id_posicao, posicao, tipo) values ('LE', 'Lateral Esquerdo', 'D');
 insert into posicao (id_posicao, posicao, tipo) values ('ZG', 'Zagueiro', 'D');
 insert into posicao (id_posicao, posicao, tipo) values ('LD', 'Lateral Direito', 'D');

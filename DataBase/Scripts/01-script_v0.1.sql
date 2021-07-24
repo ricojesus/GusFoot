@@ -147,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `GusFoot`.`jogador` (
   `id_jogador` INT NOT NULL AUTO_INCREMENT,
   `id_time` INT NOT NULL,
   `id_pais` INT NOT NULL,
-  `id_posicao` DECIMAL(2) NOT NULL,
+  `id_posicao` VARCHAR(2) NOT NULL,
   `nome` VARCHAR(50) NOT NULL,
   `nascimento` INT NOT NULL,
   `forca` INT NOT NULL,
