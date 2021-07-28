@@ -1,0 +1,42 @@
+#php_value session.auto_start on
+#php_value session.cookie_lifetime "99999999"
+#php_value session.cookie_domain "rjapps.com.br"
+
+#Header set Access-Control-Allow-Origin "*"
+
+RewriteEngine On
+RewriteBase /gusfoot/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^/?$ index.php [QSA]
+RewriteRule ^admin_times/?$ controllers/time_base_controller.php?action=list [QSA]
+RewriteRule ^admin_time/?$ controllers/time_base_controller.php?action=edit&id=$0 [QSA]
+RewriteRule ^admin_time/([0-9]+)/?$ controllers/time_base_controller.php?action=edit&id=$1 [QSA]
+
+RewriteRule ^login/?$ controllers/login_controller.php?action=login [QSA]
+RewriteRule ^logout/?$ controllers/login_controller.php?action=logout [QSA]
+RewriteRule ^dashboard/?$ controllers/dashboard_controller.php [QSA]
+RewriteRule ^entrada/?$ controllers/entrada_veiculo_controller.php [QSA]
+RewriteRule ^checkout_lavarapido/([0-9]+)/?$ controllers/entrada_veiculo_controller.php?action=checkout_lavarapido&veiculo=$1 [QSA]
+RewriteRule ^checkout_lavarapido/?$ controllers/checkout_controller.php [QSA]
+RewriteRule ^patio_lavarapido/?$ controllers/movimento_controller.php?action=patio_lavarapido [QSA]
+RewriteRule ^cancelar_lavagem/([0-9]+)/?$ controllers/movimento_controller.php?action=cancelar&id=$1 [QSA]
+RewriteRule ^entregar_lavagem/([0-9]+)/?$ controllers/movimento_controller.php?action=entregar&id=$1 [QSA]
+
+
+RewriteRule ^login/?$ controllers/login_controller.php [QSA]
+RewriteRule ^logout/?$ controllers/login_controller.php?action=logout [QSA]
+RewriteRule ^recuperar_senha/?$ controllers/password_controller.php [QSA]
+RewriteRule ^redefinir_senha/([^/\.]+)/?$ controllers/password_controller.php?action=redefinir_senha&id=$1 [QSA]
+RewriteRule ^gravar_senha/?$ controllers/password_controller.php?action=gravar_senha [QSA]
+RewriteRule ^primeiro_acesso/?$ controllers/primeiro_acesso_controller.php?action=primeiro_acesso [QSA]
+
+RewriteRule ^entrada_veiculo/?$ controllers/marca_controller.php?action=list [QSA]
+RewriteRule ^marca/?$ controllers/marca_controller.php?action=edit&id=$0 [QSA]
+RewriteRule ^marca/([0-9]+)/?$ controllers/marca_controller.php?action=edit&id=$1 [QSA]
+
+RewriteRule ^marcas/?$ controllers/marca_controller.php?action=list [QSA]
+RewriteRule ^marca/?$ controllers/marca_controller.php?action=edit&id=$0 [QSA]
+RewriteRule ^marca/([0-9]+)/?$ controllers/marca_controller.php?action=edit&id=$1 [QSA]
