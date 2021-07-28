@@ -106,7 +106,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../tables/simple.html" class="nav-link">
+                <a href="/gusfoot/teste/" class="nav-link">
+                  <i class="far fa-file-code nav-icon"></i>
+                  <p>Testes Desenvolvimento</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="" class="nav-link">
                   <i class="far fa-file nav-icon"></i>
                   <p>Novo / Carregar</p>
                 </a>
@@ -124,7 +132,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../tables/simple.html" class="nav-link">
+                <a href="" class="nav-link">
                   <i class="far fa-th nav-icon"></i>
                   <p>Quadro Geral</p>
                 </a>
@@ -132,7 +140,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../tables/simple.html" class="nav-link">
+                <a href="" class="nav-link">
                   <i class="far fa-money nav-icon"></i>
                   <p>Negociações</p>
                 </a>
