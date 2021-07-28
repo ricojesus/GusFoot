@@ -1,4 +1,4 @@
-insert into time_base (id_time_base, id_pais, nome, sigla) values (-1, 1, 'CLUBE BASE','CBS');
+insert into time_base (id_time_base, id_pais, nome, sigla) values (-1, 1, 'UNDEFINED','UDF');
 insert into time_base (id_pais, nome, sigla) values (1, 'Clube Atletico Paranaense','CAP');
 insert into time_base (id_pais, nome, sigla) values (1, 'Atletico Goianiense','CAG');
 insert into time_base (id_pais, nome, sigla) values (1, 'Clube Atletico Mineiro','ATM');

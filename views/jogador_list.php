@@ -10,13 +10,13 @@
           <div class="card card-success card-outline">
             <!-- /.card-header -->
             <div class="card-header">
-              <h3 class="card-title">Consulta de Times</h3>
+              <h3 class="card-title">Lista de Jogadores</h3>
             </div>
             <!-- card-body -->             
             <div class="card-body">
                <div class="row">
                   <div class="col">
-                      <a href="/gusfoot/admin_time/0" class="btn btn-success">Nova</a>
+                      <a href="/gusfoot/admin_jogador/0" class="btn btn-success">Nova</a>
                   </div>
               </div>
               <br>            
@@ -24,9 +24,12 @@
                 <table id="tbConsulta" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Sigla</th>
+                    <th>Time</th>
                     <th>Nome</th>
-                    <th>Pais</th>
+                    <th>Posição</th>
+                    <th>Nascimento</th>
+                    <th>Naturalidade</th>
+                    <th>Overall</th>
                     <th width="35px">Ação</th>
                   </tr>
                   </thead>
@@ -35,11 +38,14 @@
                   foreach ($list as $time) {
 
                     echo '<tr>';
-                    echo '<td>' . $time["sigla"] . '</td>';
+                    echo '<td>' . $time["nome_time"] . '</td>';
                     echo '<td>' . $time["nome"] . '</td>';
+                    echo '<td>' . $time["id_posicao"] . '</td>';
+                    echo '<td>' . $time["nascimento"] . '</td>';
                     echo '<td>' . $time["nome_pais"] . '</td>';
+                    echo '<td>' . $time["forca"] . '</td>';
                     echo '<td align="center">';
-                    echo '<a href="/gusfoot/admin_time/' . $time["id_time_base"] .  '" class="btn-sm btn-success fa fa-edit" class="confirmation" ></a>';
+                    echo '<a href="/gusfoot/admin_jogador/' . $time["id_jogador"] .  '" class="btn-sm btn-success fa fa-edit" class="confirmation" ></a>';
                     echo '</tr>';
                   }
                   ?>

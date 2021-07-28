@@ -6,14 +6,13 @@ class Posicao{
     public $posicao;
     public $tipo;
 
-	public function __construct($id = 0){
-		if ($id != 0) {
-			$result = $this->get("id_posicao = $id");
+	public function __construct($id = ""){
+		if ($id != "") {
+			$result = $this->get("id_posicao = '" . $id . "'");
 			if (count($result) > 0){
                 $this->id = $result[0]["id_posicao"];
                 $this->posicao = $result[0]["posicao"];
                 $this->tipo = $result[0]["tipo"];
-
             }
         } else {
 			$this->id = 0;

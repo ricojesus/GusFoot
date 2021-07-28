@@ -32,7 +32,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="txtSigla">Sigla</label>
-                                        <input type="text" maxlength="6" class="form-control" id="txtSigla" name="txtSigla" data-error="Campo Obrigatório" required value="<?php echo $time->sigla; ?>" >
+                                        <input type="text" maxlength="3" class="form-control" id="txtSigla" name="txtSigla" data-error="Campo Obrigatório" required value="<?php echo $time->sigla; ?>" >
                                         <div class="help-block with-errors" style="color: red"></div>
                                     </div>
                                 </div>
@@ -41,11 +41,26 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="txtNome">Nome</label>
-                                        <input type="text" maxlength="6" class="form-control" id="txtNome" name="txtNome" data-error="Campo Obrigatório" required value="<?php echo $time->nome; ?>" >
+                                        <input type="text" maxlength="50" class="form-control" id="txtNome" name="txtNome" data-error="Campo Obrigatório" required value="<?php echo $time->nome; ?>" >
                                         <div class="help-block with-errors" style="color: red"></div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Pais</label>
+                                        <select class="form-control form-control-sm" name="cboPais">
+                                            <?php
+                                            foreach ($lstPais as $pais) {
+                                                $checked = ($pais["id_pais"] == $time->pais->id)?"selected":"";
+                                                echo '<option value="' . $pais["id_pais"]  .  '" ' . $checked .  '>' . $pais["nome"] . '</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>                            
                             <div class="card-footer">
                                 <button type="submit" name="btnGravar" class="btn btn-sm btn-success">Gravar</button>
                                 <a href="/gusfoot/admin_times" class="btn btn-outline-secondary btn-sm">Voltar</a>

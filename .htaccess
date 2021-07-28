@@ -15,6 +15,10 @@ RewriteRule ^admin_times/?$ controllers/time_base_controller.php?action=list [QS
 RewriteRule ^admin_time/?$ controllers/time_base_controller.php?action=edit&id=$0 [QSA]
 RewriteRule ^admin_time/([0-9]+)/?$ controllers/time_base_controller.php?action=edit&id=$1 [QSA]
 
+RewriteRule ^admin_jogadores/?$ controllers/jogador_base_controller.php?action=list [QSA]
+RewriteRule ^admin_jogador/?$ controllers/jogador_base_controller.php?action=edit&id=$0 [QSA]
+RewriteRule ^admin_jogador/([0-9]+)/?$ controllers/jogador_base_controller.php?action=edit&id=$1 [QSA]
+
 RewriteRule ^login/?$ controllers/login_controller.php?action=login [QSA]
 RewriteRule ^logout/?$ controllers/login_controller.php?action=logout [QSA]
 RewriteRule ^dashboard/?$ controllers/dashboard_controller.php [QSA]

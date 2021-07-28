@@ -1,12 +1,14 @@
 <?php
 include_once("../dal/Sql.php");
 include_once("jogador_base.php");
+include_once("pais.php");
 
 class Time_base{
     public $id;
     public $nome;
 	public $sigla;
 	public $escudo;
+    public $pais;
 	public $forca_gol;
 	public $forca_defesa;
 	public $forca_meio;
@@ -20,15 +22,54 @@ class Time_base{
                 $this->id = $result[0]["id_time_base"];
                 $this->nome = $result[0]["nome"];
 				$this->sigla = $result[0]["sigla"];
+                $this->pais = new Pais($result[0]["id_pais"]);
 				$this->escudo = $result[0]["escudo"];
 				$this->forca_gol = $result[0]["forca_gol"];
 				$this->forca_defesa = $result[0]["forca_defesa"];
 				$this->forca_meio = $result[0]["forca_meio"];
 				$this->forca_ataque = $result[0]["forca_ataque"];
-				$this->jogadores = Jogador_base::ListbyTime($id);
+				//$this->jogadores = Jogador_base::ListbyTime($id);
 			}
         }
     }
+
+	public function save(){
+		$sql = new Sql;
+
+		try{
+			if ($this->id == 0){
+				$sql->query("INSERT INTO time_base (
+					nome,
+                    sigla,
+                    id_pais
+				) VALUES (
+					:NOME,
+                    :SIGLA,
+                    :ID_PAIS
+				)",
+				array(
+					':NOME' => $this->nome,
+                    ':SIGLA' => $this->sigla,
+                    ':ID_PAIS' => $this->pais->id
+				));
+			} else {
+				$sql->query("UPDATE time_base SET 
+					nome=:NOME,
+                    sigla=:SIGLA,
+                    id_pais=:ID_PAIS
+				WHERE id_time_base = :ID",
+				array(
+					':ID' => $this->id,
+					':NOME' => $this->nome,
+                    ':SIGLA' => $this->sigla,
+                    ':ID_PAIS' => $this->pais->id
+				));
+			}
+		} catch (Exception $ex){
+			throw new Exception($ex);
+		}
+	}    
+
 
 	public static function list(){
 		return (new self)->get();
